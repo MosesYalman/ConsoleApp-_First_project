@@ -19,71 +19,90 @@ namespace ConsoleApp__First_project
 
             string welc = "Welcome to the Calculator! ";
             Console.WriteLine(welc);
-
+           
             bool is_calculating = true;
 
             while (is_calculating)
             {
               
-
-
-
                     Console.WriteLine("Please enter a number: ");
                 double number1 = Convert.ToDouble(Console.ReadLine());
+                
+                Console.WriteLine("Enter operator: ");
+                Console.WriteLine("1 - subtraction");
+                Console.WriteLine("2 - addition");
+                Console.WriteLine("3 - division");
+                Console.WriteLine("4 - multiplication");
 
-                Console.Write("Enter operator: ");
-                string op = Console.ReadLine();
-
+                int op = Convert.ToInt32(Console.ReadLine());
 
                 Console.WriteLine("Enter a second number: ");
                 double number2 = Convert.ToDouble(Console.ReadLine());
 
-                if (op == "+")
+                switch (op)
                 {
-                    Console.WriteLine(number1 + number2);
-                }
-                else if (op == "-")
-                {
-                    Console.WriteLine(number1 - number2);
-                }
-                else if (op == "*")
-                {
-                    Console.WriteLine(number1 * number2);
-                }
-                else if (op == "/")
-                {
-                    Console.WriteLine(number1 / number2);
+                    case 1:
+                        Console.WriteLine(number1 - number2);
+                        break;
+                    case 2:
+                        Console.WriteLine(number1 + number2);
+                        break;
+                    case 3:
 
-                    if (number2 == 0)
+                        if (number2 == 0)
+                        {
+                            Console.WriteLine("you can not divide by zero!");
+                           
+                        }
+                        else
+                        {
+                            Console.WriteLine(number1 / number2);
+                        }
 
-                        Console.WriteLine("You cannot divide by 0.");
-                  
-                }
-                else
-                {
-                    Console.WriteLine("you entered an invalid operator");
+                        break;
+                    case 4:
+                        Console.WriteLine(number1 * number2);
+                        break;
 
+
+                    default:
+                        Console.WriteLine("invalid operation");
+                        break;
                 }
+
+                bool NorY = true;
                 
-                
-                   
-                
+                while (NorY)
+                {
+
+                    Console.WriteLine("Do you wish to calculate something else? y/n");
+                    string cont_string = Console.ReadLine();
+
+                    switch (cont_string)
+                    {
+
+                        case "y":
+                            Console.WriteLine("Restarting program");
+                            NorY = false;
+                            break;
+                        case "n":
+                            is_calculating = false;
+                            NorY = false;
+                            break;
+
+                        default:
+                            Console.WriteLine("Please answer again!");
+                            break;
+                    }
+                }
 
 
-                Console.WriteLine("Do you wish to calculate something else? yes/no");
-                string cont_string = Console.ReadLine();
-                if(cont_string == "no")
-                {
-                    is_calculating = false;
-                }
-                else if(cont_string != "yes")
-                {
-                    Console.WriteLine("invalid option, restarting program");
-                }
+
+              
 
             }
 
-
+          
 
 
          
