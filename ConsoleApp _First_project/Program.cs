@@ -27,7 +27,7 @@ namespace ConsoleApp__First_project
               
                     Console.WriteLine("Please enter a number: ");
                 double number1 = Convert.ToDouble(Console.ReadLine());
-                
+
                 Console.WriteLine("Enter operator: ");
                 Console.WriteLine("1 - subtraction");
                 Console.WriteLine("2 - addition");
@@ -39,29 +39,52 @@ namespace ConsoleApp__First_project
                 Console.WriteLine("Enter a second number: ");
                 double number2 = Convert.ToDouble(Console.ReadLine());
 
+
+
+                static double AdditionMethod(double number1, double number2)
+                {
+                    return number1 + number2;
+                }
+                static double SubtractionMethod(double number1, double number2)
+                {
+                    return number1 - number2;
+                }
+                static double DivisionMethod(double number1, double number2)
+                {
+
+
+                    return number1 / number2;
+                    
+                   
+                }
+                static double MultiplicationMethod(double number1, double number2)
+                {
+                    return number1 * number2;
+                }
+
                 switch (op)
                 {
                     case 1:
-                        Console.WriteLine(number1 - number2);
+                        Console.WriteLine($"{number1} - {number2} = " + SubtractionMethod(number1, number2 ));
                         break;
                     case 2:
-                        Console.WriteLine(number1 + number2);
+                        Console.WriteLine($"{number1} + {number2} = " + AdditionMethod(number1, number2 ));
                         break;
                     case 3:
-
+                       
                         if (number2 == 0)
                         {
                             Console.WriteLine("you can not divide by zero!");
-                           
+
                         }
                         else
                         {
-                            Console.WriteLine(number1 / number2);
+                            Console.WriteLine($"{number1} / {number2} = " + DivisionMethod(number1, number2));
                         }
 
                         break;
                     case 4:
-                        Console.WriteLine(number1 * number2);
+                        Console.WriteLine($"{number1} * {number2} = " + MultiplicationMethod(number1, number2));
                         break;
 
 
@@ -102,7 +125,7 @@ namespace ConsoleApp__First_project
 
             }
 
-          
+            
 
 
          
@@ -118,6 +141,11 @@ namespace ConsoleApp__First_project
 
 
 
+        }
+
+        private static string AdditionMethod(double number1, double number2)
+        {
+            throw new NotImplementedException();
         }
     }
 }
